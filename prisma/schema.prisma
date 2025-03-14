@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model contratos {
+  Cliente      String   @db.VarChar(50)
+  Fecha_inicio DateTime @db.DateTime(0)
+  Fecha_fin    DateTime @db.DateTime(0)
+  Estado       Int
+  Importe      Decimal  @db.Decimal(10, 0)
+  Id           Int      @id @default(autoincrement())
+}
